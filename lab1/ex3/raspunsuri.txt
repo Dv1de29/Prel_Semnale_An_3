@@ -1,0 +1,4 @@
+a: Diferenta de esantionare este de 1/200s = 5ms
+b: 200 * 60 * 60 = 720 000 esantioane
+  720 000 * 4 biti = 2 880 000 biti 
+  2 880 000 / 8 = 360 000 bytes
