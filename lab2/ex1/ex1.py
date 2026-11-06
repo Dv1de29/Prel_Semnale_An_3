@@ -121,6 +121,7 @@ def ex5():
   concat_points = np.concatenate((points, points + 1))
 
   plot(concat_points, concat_sin)
+  plt.savefig("ex5.pdf")
   plt.show()
 
   gen_sound(concat_sin, play=True)
@@ -169,6 +170,36 @@ def ex7():
 
   fig.savefig("ex7.pdf")
   fig.show()
+
+
+def ex8():
+  alfa = np.arange(
+    start= -np.pi / 2,
+    stop= np.pi / 2,
+    step= 1 / 1000
+  )
+  
+  sin = sinusoidal(alfa, 1)
+
+  pade = (alfa - 7 * alfa ** 3 / 60) / (1 + alfa ** 2 / 20)
+
+  err_taylor = np.abs(sin - alfa)
+  err_pade = np.abs(sin - pade)
+
+  fig, axs = plt.subplots(3)
+
+  axs[0].plot(alfa, sin)
+  axs[0].plot(alfa, alfa, "--")
+  axs[0].plot(alfa, pade, ":")
+
+  axs[1].plot(alfa, err_taylor)
+  axs[1].plot(alfa, err_pade, "--")
+
+  axs[2].semilogy(alfa, err_taylor)
+  axs[2].semilogy(alfa, err_pade)
+
+  plt.savefig("ex8.pdf")
+  plt.show()
   
 
 if __name__ == "__main__":
@@ -178,4 +209,5 @@ if __name__ == "__main__":
   # ex4()
   #ex5()            # frecventa crescuta dupa la doilea vector ascuteste semnalul
   # ex6()
-  ex7()
+  # ex7()
+  ex8()
