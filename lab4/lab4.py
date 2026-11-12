@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import time
+from scipy.io import wavfile
+
 
 def signal(
   t,
@@ -150,20 +152,20 @@ def ex5():
   pass
 
 def ex6():
+  rate, data = wavfile.read("wavesound.wav")
+  print(rate, data.shape, data.dtype)
   pass  
 
 def ex7():
   """
-  SNRdb = 80 = 10*lg(SNR) -> SNR = 10^8
-
-  SNR = 10^8 = P_semnal / P_zgomot
-  P_semnal = 90dB
-
-  P_zgomot = 90dB / 10^8
+  SNRdb = 80 = 10*lg(SNR) -> 10*lg(P_semnal/P_zgomot)
+        = 10 (lg(P_semanal) - lg(P_zgomot))
+        = P_semanal dB - P_semanl dB -> P_zgomot dB = 10
   """
 
 
 if __name__ == "__main__":
   # measure_dif([128, 256, 512, 1024, 2048, 4096, 8192])
   # ex2()
-  ex3()
+  # ex3()
+  ex6()
